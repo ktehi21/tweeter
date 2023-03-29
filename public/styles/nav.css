@@ -1,11 +1,15 @@
 nav{
-  height: 100px;
+  position: fixed;
+  top: 0; left: 0;
+  height: 120px;
   width: 100vw;
   background-color: #4056A1;
+  background-image: url(../images/navBg1.png);
   color: #FFF;
   padding: 0 1.5em 20px;
   display: flex;
   justify-content: space-between;
+  z-index: 2;
 }
 nav span{
   font-family: Bungee;
@@ -22,5 +26,12 @@ nav a{
   align-self: flex-end;
 }
 nav i{
-  display: block;
+  display: block; 
+  position: relative; 
+  animation: mymove 2s infinite;
+}
+
+@keyframes mymove {
+  from {bottom: 0px;}
+  to {bottom: -8px;}
 }

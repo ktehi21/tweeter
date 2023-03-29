@@ -31,3 +31,6 @@
 .counter{
   align-self: flex-end;
 }
+.exceedCounter {
+  color: red;
+}

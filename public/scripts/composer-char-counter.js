@@ -5,7 +5,11 @@ $(document).ready(function() {
   $newTweetCounter.addEventListener('input', function () {
     const $charNum = this.value.length;
     const $result = 140 - $charNum;
-    console.log($result, $charNum);
+    if($result<0) {
+      $(".counter").addClass('exceedCounter');
+      $(".counter").text($result);
+      return
+    }
     $(".counter").text($result);
     return
   });

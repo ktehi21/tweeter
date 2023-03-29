@@ -2,11 +2,10 @@ header{
   text-align: center;
   background-color: #d69521;
   color: #fff;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin-top: 120px;
   display: flex;
   height: 400px;
-  width: 100vw;
+  width: 100;
   align-items: center;
   justify-content: center;
   flex-direction: column;

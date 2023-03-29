@@ -1,0 +1,33 @@
+.new-tweet{
+  flex-basis: 100%;
+}
+.new-tweet form{
+  display: flex;
+  flex-direction: column;
+}
+
+#tweet-text {
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 2px;
+  border-left: 0; 
+  border-style: solid;
+  border-color: #2b2722;
+  background-color: transparent;
+  margin-bottom: 10px;
+}
+
+.new-tweet form div{
+  font-family: Bungee;
+  display: flex;
+  justify-content: space-between;
+}
+.new-tweet form button{
+  padding: 4px 15px;
+  background-color: #4056A1;
+  color: #fff;
+  border: none;
+}
+.counter{
+  align-self: flex-end;
+}

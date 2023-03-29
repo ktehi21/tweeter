@@ -1,0 +1,26 @@
+nav{
+  height: 100px;
+  width: 100vw;
+  background-color: #4056A1;
+  color: #FFF;
+  padding: 0 1.5em 20px;
+  display: flex;
+  justify-content: space-between;
+}
+nav span{
+  font-family: Bungee;
+  font-size: 1.5em;
+  vertical-align: bottom;
+  align-self: flex-end;
+}
+nav a{
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+  align-self: flex-end;
+}
+nav i{
+  display: block;
+}

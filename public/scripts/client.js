@@ -28,17 +28,8 @@ const data = [
   }
 ]
 
-$(() => {
-  const renderTweets = function(tweets) {
-    // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
-    
-    for (const user of data){
-      const $tweet = createTweetElement(user);
-      $('#tweets-container').append($tweet);
-    }
-  }
+$(document).ready(() => {
+
   
   const createTweetElement = function (tweetData) {
     let $tweet = $(
@@ -72,8 +63,48 @@ $(() => {
     </article>`
   )
   return $tweet;
-};
+  };
 
+  const renderTweets = function(tweets) {
+    // loops through tweets
+    // calls createTweetElement for each tweet
+    // takes return value and appends it to the tweets container
+    
+    for (const user of data){
+      const $tweet = createTweetElement(user);
+      $('#tweets-container').prepend($tweet);
+    }
+  }
   renderTweets(data);
 
+  // grab the form
+  $('.new-tweet-form').submit(function(event){
+    // stop default behavior form
+    event.preventDefault();
+    
+    // get tweet data
+    const tweetData = $('#tweet-text').val();
+    
+    // seserialize data
+    const formData = $(this).serialize();
+    console.log("formData: ", formData);
+
+
+
+    // post seserialize data to backend
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: formData
+    }).then((newTweet) => {
+      console.log("newTweet: ", newTweet);
+      // fetch 
+      fetchTweets();
+    });
+
+
+  });
+
+
 });
+

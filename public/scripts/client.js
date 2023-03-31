@@ -4,11 +4,21 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 
 */
-
+// const timeAgo = new TimeAgo('en-US');
+// const timePrint = timeAgo.format(tweetData.created_at - 2 * 60 * 60 * 1000);
+// const timePrint = timeago().format($(tweetData.created_at));
 
 $(document).ready(() => {
 
   const createTweetElement = function (tweetData) {
+    const timestamp = tweetData.created_at;
+    const date = new Date(timestamp);
+    const isoDate = date.toISOString();
+
+    // Use isoDate with the timeago plugin
+    $("time.timeago").attr("datetime", isoDate).timeago();
+
+
     let $tweet = $(
     `<article class="tweet">
       <header>
@@ -23,7 +33,7 @@ $(document).ready(() => {
       <div class="tweet-content">${tweetData.content.text}</div>
       <footer>
         <div class="tweet-date">
-          <p>10 days ago</p>
+          <time class="timeago" datetime="${tweetData.created_at}">less than a minute ago</time>
         </div>
         <div class="tweet-react">
           <a href="#">
@@ -42,17 +52,19 @@ $(document).ready(() => {
   return $tweet;
   };
 
-  // const renderTweets = function(tweets) {
-  //   // loops through tweets
-  //   // calls createTweetElement for each tweet
-  //   // takes return value and appends it to the tweets container
-    
-  //   for (const user of data){
-  //     const $tweet = createTweetElement(user);
-  //     $('#tweets-container').prepend($tweet);
-  //   }
-  // }
-  // renderTweets(data);
+  // load previous tweet
+  const loadTweets = function() {
+    $.ajax({
+      mothod: 'GET',
+      url: '/tweets',
+    }).then((tweets) => {
+      for (const user of tweets){
+        const $tweet = createTweetElement(user);
+        $('#tweets-container').prepend($tweet);
+      }
+    });
+  }
+  loadTweets();
 
   // grab the form
   $('.new-tweet-form').submit(function(event){
@@ -60,20 +72,23 @@ $(document).ready(() => {
     event.preventDefault();
     
     // get tweet data
-    const tweetData = $('#tweet-text').val();
+    const tweetData = $('#tweet-text');
+    // validate empty or exceed 140
+    if (tweetData === '') {
+      alert("Please input messege");
+      return
+    }
     
     // seserialize data
     const formData = $(this).serialize();
-    console.log("formData: ", formData);
-
 
     const fetchTweets = () => {
       $.ajax({
         mothod: 'GET',
         url: '/tweets',
       }).then((tweets) => {
-        console.log(tweets);
-        for (const user of data){
+        $('#tweets-container').empty();
+        for (const user of tweets){
           const $tweet = createTweetElement(user);
           $('#tweets-container').prepend($tweet);
         }
@@ -86,12 +101,11 @@ $(document).ready(() => {
       url: "/tweets",
       data: formData
     }).then((newTweet) => {
-      console.log("newTweet: ", newTweet);
-      // fetch 
       fetchTweets();
     });
-
-
+    
+    // clean the textarea
+    $('#tweet-text').innerHTML = "";
   });
 
 

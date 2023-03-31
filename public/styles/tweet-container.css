@@ -42,7 +42,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.tweet footer p, .tweet footer a {
+.tweet footer time, .tweet footer a {
   font-size: 14px;
   align-self: center;
   transition: all 0.5s;

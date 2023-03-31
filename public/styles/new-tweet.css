@@ -1,7 +1,8 @@
-.new-tweet{
+#new-tweet{
   flex-basis: 100%;
+  margin-bottom: 50px;
 }
-.new-tweet form{
+#new-tweet form{
   display: flex;
   flex-direction: column;
 }
@@ -9,20 +10,20 @@
 #tweet-text {
   border-top: 0;
   border-right: 0;
-  border-bottom: 2px;
+  border-bottom: 4px;
   border-left: 0; 
   border-style: solid;
-  border-color: #2b2722;
+  border-color: #55514a;
   background-color: transparent;
   margin-bottom: 10px;
 }
 
-.new-tweet form div{
+#new-tweet form div{
   font-family: Bungee;
   display: flex;
   justify-content: space-between;
 }
-.new-tweet form button{
+#new-tweet form button{
   padding: 4px 15px;
   background-color: #4056A1;
   color: #fff;

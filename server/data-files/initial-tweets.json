@@ -8,7 +8,7 @@
     "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
-    "created_at": 1679900538589
+    "created_at": 1679959539472
   },
   {
     "user": {
@@ -19,6 +19,17 @@
     "content": {
       "text": "Je pense , donc je suis"
     },
-    "created_at": 1679986938589
+    "created_at": 1680045939472
+  },
+  {
+    "user": {
+      "name": "Dongjoo",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "handle": "@Dongdong"
+    },
+    "content": {
+      "text": "counting starts"
+    },
+    "created_at": 1680132339472
   }
 ]

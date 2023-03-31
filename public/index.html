@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet-container.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -31,10 +32,10 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
-      <a href="#"><b>Write</b> a new tweet <br><i class="fa-solid fa-angles-down" style="color: #d69521;"></i></a>
+      <a href="#new-tweet"><b>Write</b> a new tweet <br><i class="fa-solid fa-angles-down" style="color: #d69521;"></i></a>
     </nav>
 
-    <header>
+    <header id="main-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -45,7 +46,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section id="new-tweet">
         <h2>Compose Tweet</h2>
         <form>
           <label for="tweet-text">What are you humming about?</label>
@@ -56,6 +57,7 @@
           </div>
         </form>
       </section>
+      <section id="tweets-container"></section>
     </main>
   </body>
 </html>

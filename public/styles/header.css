@@ -1,4 +1,4 @@
-header{ 
+header#main-header{ 
   text-align: center;
   background-color: #d69521;
   color: #fff;
@@ -12,7 +12,7 @@ header{
   position: relative;
   z-index: 1;
 }
-header:before{
+header#main-header:before{
   content: "";
   display: block;
   background-image: url(../images/headerBg.png);
@@ -23,9 +23,9 @@ header:before{
   height: 100%;
   opacity: 0.75;
 }
-header div{
+header#main-header div{
   z-index: 3;
 }
-header h2{
+header#main-header h2{
   margin-top: 0px;
 }

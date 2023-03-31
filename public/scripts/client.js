@@ -73,8 +73,9 @@ $(document).ready(() => {
     
     // get tweet data
     const tweetData = $('#tweet-text');
-    // validate empty or exceed 140
-    if (tweetData === '') {
+    console.log("tweetData.value", tweetData);
+    // validate empty
+    if (tweetData.val() === '') {
       alert("Please input messege");
       return
     }

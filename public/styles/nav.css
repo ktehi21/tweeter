@@ -23,6 +23,7 @@ nav a{
   font-size: 16px;
   text-align: center;
   align-self: flex-end;
+  cursor: pointer;
 }
 nav i{
   display: block; 

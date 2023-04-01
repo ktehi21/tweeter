@@ -16,9 +16,7 @@
 .tweet .user-name {
   display: flex;
 }
-/* .tweet .user-name p {
-  align-self: center;
-} */
+
 .tweet .user-name .avatar {
   width: 35px;
   height: 35px;
@@ -31,6 +29,7 @@
 .tweet .tweet-content {
   padding-right: 10px;
   padding-left: 10px;
+  word-wrap: break-word;
 }
 .tweet .tweet-content p {
   margin: 0px;

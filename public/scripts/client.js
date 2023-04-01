@@ -14,7 +14,7 @@ $(document).ready(() => {
     e.preventDefault();
     $('html, body').animate({
       scrollTop: $('#tweet-text').offset().top - 200
-    }, 700);
+    }, 400);
     $('#tweet-text').focus();
   });
 

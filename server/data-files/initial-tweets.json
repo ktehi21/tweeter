@@ -2,34 +2,34 @@
   {
     "user": {
       "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "avatars": "73hZDYK.png",
       "handle": "@SirIsaac"
     },
     "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
-    "created_at": 1679974021014
+    "created_at": 1680052324402
   },
   {
     "user": {
       "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "avatars": "nlhLi3I.png",
       "handle": "@rd"
     },
     "content": {
       "text": "Je pense , donc je suis"
     },
-    "created_at": 1680060421014
+    "created_at": 1680138724402
   },
   {
     "user": {
       "name": "Dongjoo",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "avatars": "DVpDmdR.png",
       "handle": "@Dongdong"
     },
     "content": {
       "text": "counting starts"
     },
-    "created_at": 1680146821014
+    "created_at": 1680225124402
   }
 ]

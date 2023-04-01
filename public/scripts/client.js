@@ -23,7 +23,7 @@ $(document).ready(() => {
     `<article class="tweet">
       <header>
         <div class="user-name">
-          <p><img src="${tweetData.user.avatars}" class="avatar"> </p>
+          <p><img src="./images/${tweetData.user.avatars}" class="avatar"> </p>
           <p>${tweetData.user.handle}</p>
         </div>
         <div class="user-id">
@@ -73,13 +73,30 @@ $(document).ready(() => {
     
     // get tweet data
     const tweetData = $('#tweet-text');
-    console.log("tweetData.value", tweetData);
-    // validate empty
+
+    // validate empty , exceed 140 can't submit: composer-char-counter.js
     if (tweetData.val() === '') {
-      alert("Please input messege");
+      $(".errorMsg")
+        .text("Please fill in the text area before submitting")
+        .slideDown(800);
       return
+    } else {
+      $(".errorMsg")
+        .slideUp(800);
     }
-    
+
+    if (tweetData.val().length > 140) {
+      return //Can't exceed 140 character!
+    }
+
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+    const safeHTML = `<p>${escape(tweetData.val())}</p>`;
+    $("#tweet-text").val(safeHTML);
+
     // seserialize data
     const formData = $(this).serialize();
 
@@ -106,7 +123,7 @@ $(document).ready(() => {
     });
     
     // clean the textarea
-    $('#tweet-text').innerHTML = "";
+    $('#tweet-text').val("")
   });
 
 

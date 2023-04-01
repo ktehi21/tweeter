@@ -1,31 +1,30 @@
-.tweet{
+.tweet {
   margin-bottom: 20px;
   border: 4px solid #55514a;
   padding: 0px 10px 10px;
   transition: all 0.5s;
 }
-.tweet:hover{
+.tweet:hover {
   box-shadow: 5px 5px #c9cae1;
 }
-.tweet header{
+.tweet header {
   display: flex;
   justify-content: space-between;
   padding-right: 10px;
   padding-left: 10px;
 }
-.tweet .user-name{  
+.tweet .user-name {
   display: flex;
-  
 }
-.tweet .user-name p{
+/* .tweet .user-name p {
   align-self: center;
-}
-.tweet .user-name .avatar{
+} */
+.tweet .user-name .avatar {
   width: 35px;
   height: 35px;
   margin-right: 8px;
 }
-.tweet .user-id{
+.tweet .user-id {
   opacity: 0.5;
 }
 
@@ -33,8 +32,11 @@
   padding-right: 10px;
   padding-left: 10px;
 }
+.tweet .tweet-content p {
+  margin: 0px;
+}
 
-.tweet footer{
+.tweet footer {
   margin-top: 20px;
   border-top: 4px solid #55514a;
   display: flex;
@@ -42,15 +44,16 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.tweet footer time, .tweet footer a {
+.tweet footer time,
+.tweet footer a {
   font-size: 14px;
   align-self: center;
   transition: all 0.5s;
 }
-.tweet footer a{
-  color: #4056A1;
+.tweet footer a {
+  color: #4056a1;
   margin-left: 5px;
 }
-.tweet footer a:hover{
+.tweet footer a:hover {
   color: #c8982b;
 }

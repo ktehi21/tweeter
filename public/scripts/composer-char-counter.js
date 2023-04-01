@@ -4,17 +4,18 @@ $(document).ready(function() {
 //   const $counter = document.getElementsByClassName('counter');
   $newTweetCounter.addEventListener('input', function () {
     const $charNum = this.value.length;
-    const $result = 140 - $charNum;
+    let $result = 140 - $charNum;
     if($result<0) {
-      // $(".counter").addClass('exceedCounter');
-      // $(".counter").text($result);
-
-      alert("You can't exceed 140 characters");
-      const $newTweetValue = $newTweetCounter.value;
-      $newTweetCounter.value = $newTweetValue.slice(0, -1);
+      $result = 140 - $charNum;
+      $(".counter").text($result).addClass("exceedCounter");
+      $(".errorMsg")
+        .text("You can't exceed 140 characters")
+        .slideDown(800);
       return
     }
-    $(".counter").text($result);
+    $(".errorMsg")
+      .slideUp(800);
+    $(".counter").text($result).removeClass("exceedCounter");
     return
   });
 });

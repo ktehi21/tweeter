@@ -35,7 +35,7 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
-      <a href="#new-tweet"><b>Write</b> a new tweet <br><i class="fa-solid fa-angles-down" style="color: #d69521;"></i></a>
+      <a href="#writeNew"><b>Write</b> a new tweet <br><i class="fa-solid fa-angles-down" style="color: #d69521;"></i></a>
     </nav>
 
     <header id="main-header">
@@ -43,6 +43,7 @@
           <img src="/images/profile-hex.png"> 
       </div>
       <div>
+          <span id="writeNew"></span>
           <h2>K.TEHI</h2>
       </div>
   </header>
@@ -54,12 +55,14 @@
         <form class="new-tweet-form" action="/tweets" method="POST">
           <label for="tweet-text"></label>
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          <p class="errorMsg"></p>
           <div>
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
+
       <section id="tweets-container"></section>
     </main>
   </body>

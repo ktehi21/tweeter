@@ -2,11 +2,7 @@
  * Client-side JS logic goes here
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
-
 */
-// const timeAgo = new TimeAgo('en-US');
-// const timePrint = timeAgo.format(tweetData.created_at - 2 * 60 * 60 * 1000);
-// const timePrint = timeago().format($(tweetData.created_at));
 
 $(document).ready(() => {
   // click Write a new tweet then go to textarea and focus
@@ -25,7 +21,6 @@ $(document).ready(() => {
 
     // Use isoDate with the timeago plugin
     $("time.timeago").attr("datetime", isoDate).timeago();
-
 
     let $tweet = $(
     `<article class="tweet">
@@ -56,8 +51,8 @@ $(document).ready(() => {
         </div>
       </footer>
     </article>`
-  )
-  return $tweet;
+    )
+    return $tweet;
   };
 
   // load previous tweet
@@ -75,14 +70,18 @@ $(document).ready(() => {
   loadTweets();
 
   // grab the form
+  // stop default behavior form
+  // get tweet data
+  // validate empty , exceed 140 can't submit: composer-char-counter.js
+  //Can't exceed 140 character!
+  // seserialize data
+  // post seserialize data to backend
+  // clean the textarea
   $('.new-tweet-form').submit(function(event){
-    // stop default behavior form
     event.preventDefault();
     
-    // get tweet data
     const tweetData = $('#tweet-text');
 
-    // validate empty , exceed 140 can't submit: composer-char-counter.js
     if (tweetData.val() === '') {
       $(".errorMsg")
         .text("Please fill in the text area before submitting")
@@ -94,7 +93,7 @@ $(document).ready(() => {
     }
 
     if (tweetData.val().length > 140) {
-      return //Can't exceed 140 character!
+      return 
     }
 
     const escape = function (str) {
@@ -105,7 +104,6 @@ $(document).ready(() => {
     const safeHTML = `<p>${escape(tweetData.val())}</p>`;
     $("#tweet-text").val(safeHTML);
 
-    // seserialize data
     const formData = $(this).serialize();
 
     const fetchTweets = () => {
@@ -121,7 +119,6 @@ $(document).ready(() => {
       });
     }
 
-    // post seserialize data to backend
     $.ajax({
       method: "POST",
       url: "/tweets",
@@ -130,10 +127,8 @@ $(document).ready(() => {
       fetchTweets();
     });
     
-    // clean the textarea
     $('#tweet-text').val("")
   });
-
 
 });
 

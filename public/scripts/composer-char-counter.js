@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
   const $newTweetCounter = document.getElementById('tweet-text');
-//   const $counter = document.getElementsByClassName('counter');
+  
+  // 140 counting 
+  // if exceed 140 error messege shows
   $newTweetCounter.addEventListener('input', function () {
     const $charNum = this.value.length;
     let $result = 140 - $charNum;

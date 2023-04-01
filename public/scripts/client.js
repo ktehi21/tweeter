@@ -13,8 +13,8 @@ $(document).ready(() => {
   $("#goToWrite").on('click', (e) => {
     e.preventDefault();
     $('html, body').animate({
-      scrollTop: $('#tweet-text').offset().top - 200
-    }, 400);
+      scrollTop: $('#tweet-text').offset().top - 170
+    }, 500);
     $('#tweet-text').focus();
   });
 

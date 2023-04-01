@@ -1,6 +1,7 @@
 #new-tweet{
   flex-basis: 100%;
   margin-bottom: 50px;
+  padding-top: 60px;
 }
 #new-tweet form{
   display: flex;

@@ -9,6 +9,14 @@
 // const timePrint = timeago().format($(tweetData.created_at));
 
 $(document).ready(() => {
+  // click Write a new tweet then go to textarea and focus
+  $("#goToWrite").on('click', (e) => {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: $('#tweet-text').offset().top - 200
+    }, 700);
+    $('#tweet-text').focus();
+  });
 
   const createTweetElement = function (tweetData) {
     const timestamp = tweetData.created_at;

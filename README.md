@@ -24,3 +24,9 @@ This repository is the starter code for the project: Students will fork and clon
 ### Resiponsive Designed
   
   - Break Point 1024px
+
+## Screenshots
+!["Screenshot of Desktop view"](https://github.com/ktehi21/tweeter/docs/new-tweet-char-counting.png)
+!["Screenshot of Mobile view"](https://github.com/ktehi21/tweeter/docs/mobile-screen.png)
+!["Screenshot of Error Message: over 140 characters"](https://github.com/ktehi21/tweeter/docs/error-messege-when-exceed-140-char.png)
+!["Screenshot of Error Message: submit empty text field"](https://github.com/ktehi21/tweeter/docs/error-message-when empty-field-submit.png)

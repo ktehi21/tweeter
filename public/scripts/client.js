@@ -127,7 +127,8 @@ $(document).ready(() => {
       fetchTweets();
     });
     
-    $('#tweet-text').val("")
+    $('#tweet-text').val("");
+    $(".counter").text(140);
   });
 
 });

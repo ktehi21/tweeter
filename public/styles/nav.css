@@ -1,10 +1,10 @@
 nav{
   position: fixed;
   top: 0; left: 0;
-  height: 120px;
-  width: 100%;
-  background-color: #4056A1;
-  background-image: url(../images/navBg1.png);
+  height: 100px;
+  width: 100%;    
+  background-color: transparent;
+  background-image: none;
   color: #FFF;
   padding: 0 1.5em 20px;
   display: flex;
@@ -25,8 +25,9 @@ nav a{
   align-self: flex-end;
   cursor: pointer;
 }
-nav i{
+nav a i{
   display: block; 
+  color: red;
   position: relative; 
   animation: mymove 2s infinite;
 }
@@ -34,4 +35,16 @@ nav i{
 @keyframes mymove {
   from {bottom: 0px;}
   to {bottom: -8px;}
+}
+
+@media only screen and (min-width: 1024px) {
+  nav{
+    height: 100px;
+    background-color: #4056A1;
+    background-image: url(../images/navBg1.png);
+  }
+  
+  nav a i{
+    color: #d69521;
+  }
 }

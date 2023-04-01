@@ -2,10 +2,11 @@ header#main-header{
   text-align: center;
   background-color: #d69521;
   color: #fff;
-  margin-top: 120px;
-  display: flex;
-  height: 400px;
-  width: 100;
+  margin-top: 0px;
+  padding-top: 40px;
+  display: flex;  
+  height: 480px;
+  width: 100%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -28,4 +29,19 @@ header#main-header div{
 }
 header#main-header h2{
   margin-top: 0px;
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+  header#main-header{
+    height: 480px;
+    min-width: 300px;
+    width: 38%;
+    max-width: 600px;
+    margin-right: 2%;
+    position: fixed;
+    top: 244px;
+    left: 2%;
+  }
 }

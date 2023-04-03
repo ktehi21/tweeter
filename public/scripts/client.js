@@ -14,6 +14,7 @@ $(document).ready(() => {
     $('#tweet-text').focus();
   });
 
+
   const createTweetElement = function (tweetData) {
     const timestamp = tweetData.created_at;
     const date = new Date(timestamp);
@@ -33,7 +34,7 @@ $(document).ready(() => {
           <p>${tweetData.user.name}</p>
         </div>
       </header>
-      <div class="tweet-content">${tweetData.content.text}</div>
+      <div class="tweet-content">${escape(tweetData.content.text)}</div>
       <footer>
         <div class="tweet-date">
           <time class="timeago" datetime="${tweetData.created_at}">less than a minute ago</time>
@@ -69,11 +70,6 @@ $(document).ready(() => {
   }
   loadTweets();
 
-  const escape = function (str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  };
 
   // grab the form
   // stop default behavior form
@@ -102,9 +98,6 @@ $(document).ready(() => {
       return 
     }
 
-    const safeHTML = `<p>${escape(tweetData.val())}</p>`;
-    $("#tweet-text").val(safeHTML);
-
     const formData = $(this).serialize();
 
     // added fail capture by 4/2 
@@ -118,8 +111,8 @@ $(document).ready(() => {
           const $tweet = createTweetElement(user);
           $('#tweets-container').prepend($tweet);
         }
-      }).fail((error) => {
-        console.error(error);
+      }).fail((err) => {
+        console.error(err.message);
         alert("Sorry can't load tweet. Try it again");
       });
     }
@@ -133,8 +126,8 @@ $(document).ready(() => {
       fetchTweets();
       $('#tweet-text').val("");
       $(".counter").text(140);
-    }).fail((error) => {
-      console.error(error);
+    }).fail((err) => {
+      console.error(err.message);
       alert("Sorry can't post tweet. Try it again");
     });
     

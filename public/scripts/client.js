@@ -69,11 +69,17 @@ $(document).ready(() => {
   }
   loadTweets();
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   // grab the form
   // stop default behavior form
   // get tweet data
   // validate empty , exceed 140 can't submit: composer-char-counter.js
-  //Can't exceed 140 character!
+  // Can't exceed 140 character!
   // seserialize data
   // post seserialize data to backend
   // clean the textarea
@@ -96,16 +102,12 @@ $(document).ready(() => {
       return 
     }
 
-    const escape = function (str) {
-      let div = document.createElement("div");
-      div.appendChild(document.createTextNode(str));
-      return div.innerHTML;
-    };
     const safeHTML = `<p>${escape(tweetData.val())}</p>`;
     $("#tweet-text").val(safeHTML);
 
     const formData = $(this).serialize();
 
+    // added fail capture by 4/2 
     const fetchTweets = () => {
       $.ajax({
         mothod: 'GET',
@@ -116,19 +118,26 @@ $(document).ready(() => {
           const $tweet = createTweetElement(user);
           $('#tweets-container').prepend($tweet);
         }
+      }).fail((error) => {
+        console.error(error);
+        alert("Sorry can't load tweet. Try it again");
       });
     }
 
+    // added fail capture by 4/2 
     $.ajax({
       method: "POST",
       url: "/tweets",
       data: formData
     }).then((newTweet) => {
       fetchTweets();
+      $('#tweet-text').val("");
+      $(".counter").text(140);
+    }).fail((error) => {
+      console.error(error);
+      alert("Sorry can't post tweet. Try it again");
     });
     
-    $('#tweet-text').val("");
-    $(".counter").text(140);
   });
 
 });
